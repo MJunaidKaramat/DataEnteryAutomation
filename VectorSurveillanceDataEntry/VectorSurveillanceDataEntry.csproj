@@ -79,12 +79,16 @@
   <ItemGroup>
     <Compile Include="CommonMethods.cs" />
     <Compile Include="CovidDataEntry.cs" />
+    <Compile Include="EPIMonthlyReport.cs" />
     <Compile Include="IndoorEntry.cs" />
     <Compile Include="OutdoorEntry.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="COVIDFILE.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="IndoorUpdated.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

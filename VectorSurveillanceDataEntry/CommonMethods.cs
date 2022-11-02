@@ -26,7 +26,7 @@ namespace FP_InterWood
             options.AddArguments("--headless");
             if (browserName.Equals("chrome", StringComparison.InvariantCultureIgnoreCase))
             {
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
             }
             else if (browserName.Equals("edge", StringComparison.InvariantCultureIgnoreCase))
             {
@@ -55,7 +55,7 @@ namespace FP_InterWood
  
         public void dropDownItemSelect(By path, string value)
         {
-            IWebElement drpDown = findElement(path);
+            IWebElement drpDown = ExplicitWaitElementIsVisible(path);
             SelectElement dropDownMenu = new SelectElement(drpDown);
             dropDownMenu.SelectByValue(value);
         }
@@ -113,5 +113,7 @@ namespace FP_InterWood
             IAlert alert = driver.SwitchTo().Alert();
             alert.Accept();
         }
+
+
     }
 }

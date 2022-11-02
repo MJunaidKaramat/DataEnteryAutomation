@@ -89,7 +89,7 @@ namespace VectorSurveillanceDataEntry
             inputText(tireField, tire);
             inputText(tirePositiveField, tireP);
             inputText(treeHoleField, treeHole);
-            inputText(tirePositiveField, treeHoleP);
+            inputText(treeHolePositiveField, treeHoleP);
             inputText(garbageField, garbage);
             inputText(garbagePositiveField, garbageP);
             inputText(constructionWasteField, constructionWaste);

@@ -8,6 +8,7 @@ using System.Security.Policy;
 using System.Timers;
 using System.Collections.Generic;
 using OfficeOpenXml;
+using System.Net;
 
 namespace VectorSurveillanceDataEntry
 {
@@ -114,7 +115,7 @@ namespace VectorSurveillanceDataEntry
         {
             using (ExcelPackage package = new ExcelPackage(new System.IO.FileInfo("OutdoorUpdated.xlsx")))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets["Sheet1"];
+                ExcelWorksheet worksheet = package.Workbook.Worksheets["Sheet2"];
                 var rowCount = worksheet.Dimension.End.Row;
                 for (int i = 1; i <= rowCount; i++)
                 {
@@ -191,6 +192,41 @@ namespace VectorSurveillanceDataEntry
             }
             entry.closeBrowser();
         }
+
+        public static IEnumerable<object[]> covidExcelData()
+        {
+            using (ExcelPackage package = new ExcelPackage(new System.IO.FileInfo("COVIDFILE.xlsx")))
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets["Sheet1"];
+                var rowCount = worksheet.Dimension.End.Row;
+                for (int i = 1; i <= rowCount; i++)
+                {
+                    yield return new object[]
+                    {
+                        worksheet.Cells[i,1].Value?.ToString().Trim(),
+                        worksheet.Cells[i,2].Value?.ToString().Trim(),
+                        worksheet.Cells[i,3].Value?.ToString().Trim(),
+                        worksheet.Cells[i,4].Value?.ToString().Trim(),
+                        worksheet.Cells[i,5].Value?.ToString().Trim(),
+                        worksheet.Cells[i,6].Value?.ToString().Trim(),
+                        worksheet.Cells[i,7].Value?.ToString().Trim()
+                    };
+                }
+            }
+        }
+        [DynamicData(nameof(covidExcelData), DynamicDataSourceType.Method)]
+        //[TestMethod]
+        public void CovidDataEntryForm(string CNIC, string name, string fName, string gender, string age, 
+            string contact, string address)
+        {
+            CovidDataEntry obj = new CovidDataEntry();
+            obj.browserSelection(browser);
+            obj.landingPage("https://covid-19.pshealthpunjab.gov.pk/patients");
+            string userName = "ceo.sheikhupura@hisdu.com";
+            string userPassword = "ceodhaskp";
+            obj.loginActivity(userName, userPassword);
+            obj.DataEntry(CNIC, name, fName, gender, age, contact, address);
+        }
         public void csvData()
         {
             #region InputData
@@ -234,5 +270,11 @@ namespace VectorSurveillanceDataEntry
             string roofJunkP = TestContext.DataRow["uc"].ToString();
             #endregion
         }
+
+        public void EPIMonthlyReportDataEntry()
+        {
+
+        }
     }
+
 }
