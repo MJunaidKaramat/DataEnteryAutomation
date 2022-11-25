@@ -89,6 +89,9 @@
     <None Include="COVIDFILE.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="EPIReportUpload.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="IndoorUpdated.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

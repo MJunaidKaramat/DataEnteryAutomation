@@ -298,9 +298,10 @@ namespace VectorSurveillanceDataEntry
         #endregion
         public void Login()
         {
-            inputText(userName, "sheikhupura154_deo");
-            inputText(userPassword, "pnj5842");
+            inputTextLogin(userName, "muridke_deo");
+            inputText(userPassword, "epimis");
             ClickableItem(loginButton);
+            Thread.Sleep(10000);
         }
         public void EntryPage(string UC, string tFixedCenters, string tFunctioningCenters, string reportingCenters, string planned, string sessionsHeld, 
             string outSessionsPlaned, string outSessionsHeld, string hepF1, string hepF2, string hepO1, string hepO2, string bcg01, string bcg02, string bcg03, string bcg04,
@@ -319,18 +320,27 @@ namespace VectorSurveillanceDataEntry
             string Rota2SegDef22, string Rota2SegUCOut23, string Rota2SegDisOut24, string IPV1SegDue11, string IPV1SegDef12, string IPV1SegUCOut13, string IPV1SegDisOut14, 
             string IPV2SegDue21, string IPV2SegDef22, string IPV2SegUCOut22, string IPV2SegDisOut24, string TCVSegDue1, string TCVSegDef2, string TCVSegUCOut3, string TCVSegDisOut4,
             string MR1SegDue11, string MR1SegDef12, string MR1SegUCOut13, string MR1SegDisOut14, string MR2SegDue21, string MR2SegDef22, string MR2SegUCOut23, string MR2SegDisOut24,
-            string DTPSegDue1, string DTPSegDef2, string DTPSegUCOut3, string DTPSegDisOut4
+            string DTPSegDue1, string DTPSegDef2, string DTPSegUCOut3, string DTPSegDisOut4, string FTT11, string FTT22, string FTT33, string FTT44, string FTT55, string OTT11, 
+            string OTT22, string OTT33, string OTT44, string OTT55, string HEPBOpenBalance1, string HEPBReceived2, string HEPBCloseBalance3, string BCGOpenBalance1, string BCGReceived2,
+            string BCGCloseBalance3, string OPVOpenBalance1, string OPVReceived2, string OPVCloseBalance3, string PentaOpenBalance1, string PentaReceived2, string PentaCloseBalance3,
+            string PCVOpenBalance1, string PCVReceived2, string PCVCloseBalance3, string ROTAOpenBalacne1, string ROTAReceived2, string ROTACloseBalance3, string IPVOpenBalacne1,
+            string IPVReceived2, string IPVCloseBalance3, string TCVOpenBalacne1, string TCVReceived2, string TCVCloseBalance3, string MROpenBalacne1, string MRReceived2, string MRCloseBalance3,
+            string DTPOpenBalacne1, string DTPReceived2, string DTPCloseBalance3, string TTOpenBalacne1, string TTReceived2, string TTCloseBalance3, string AD005OpenBalacne1, 
+            string AD005Received2, string AD005CloseBalance3, string AD05OpenBalacne1, string AD05Received2, string AD05CloseBalance3, string Syr2OpenBalacne1, string Syr2Received2, 
+            string Syr2CloseBalance3, string Syr5OpenBalacne1, string Syr5Received2, string Syr5CloseBalance3, string CardChildOpenBalacne1, string CardChildReceived2,
+            string CardChildCloseBalance3, string CardWomenOpenBalacne1, string CardWomenReceived2, string CardWomenCloseBalance3, string UsedSafteyBox1, string DisposedSafteyBox2,
+            string methodDisposeDropDown11, string UsedVials1, string DisposedVials2, string methodDisposeDropDown21, string UnusedVials1, string UnusedDisposedVials2, string methodDisposeDropDown31,
+            string MissedNA1, string Refusal2, string Sick1, string newMaleChild1, string newFemaleChild2, string recordedZeroDue1, string recordedZeroDefaulter2, string coverageZeroDue1, 
+            string coverageZeroDefaulter2)
 
-
-
-)
         {
-            #region done
+
             ClickableItem(firstDropDownItemClick);
             ClickableItem(secondDropDownItemClick);
             ClickableItem(thirdDropDownItemClick);
             ClickableItem(addNewReportButton);
-
+            dropDownItemSelect(selectTehsilDropDown, "154004");
+            Thread.Sleep(2000);
             dropDownItemSelect(selectUCDropDown, UC);
             inputText(totalFixedCentersField, tFixedCenters);
             inputText(totalFunctioningCentersField, tFunctioningCenters);
@@ -339,7 +349,6 @@ namespace VectorSurveillanceDataEntry
             inputText(totalHeldSessionsField, sessionsHeld);
             inputText(totalOutPlannedSessionsField, outSessionsPlaned);
             inputText(totalOutHeldSessionsField, outSessionsHeld);
-
             inputText(FHepVacM, hepF1);
             inputText(FHepVacF, hepF2);
             inputText(OHepVacM, hepO1);
@@ -364,7 +373,6 @@ namespace VectorSurveillanceDataEntry
             inputText(FOPV3F, opv31);
             inputText(OOPV3M, opv32);
             inputText(OOPV3F, opv33);
-
             inputText(FPenta1M, FPenta11);
             inputText(FPenta1F, FPenta12);
             inputText(OPenta1M, OPenta13);
@@ -377,7 +385,6 @@ namespace VectorSurveillanceDataEntry
             inputText(FPenta3F, FPenta32);
             inputText(OPenta3M, OPenta33);
             inputText(OPenta3F, OPenta34);
-
             inputText(FPCV1M, FPCV11);
             inputText(FPCV1F, FPCV12);
             inputText(OPCV1M, OPCV13);
@@ -390,7 +397,6 @@ namespace VectorSurveillanceDataEntry
             inputText(FPCV3F, FPCV32);
             inputText(OPCV3M, OPCV33);
             inputText(OPCV3F, OPCV34);
-
             inputText(FRota1M, FRota11);
             inputText(FRota1F, FRota12);
             inputText(ORota1M, ORota13);
@@ -491,13 +497,85 @@ namespace VectorSurveillanceDataEntry
             inputText(DTPSegDef, DTPSegDef2);
             inputText(DTPSegUCOut, DTPSegUCOut3);
             inputText(DTPSegDisOut, DTPSegDisOut4);
-
-            #endregion
-
-
-
-
-
+            inputText(FTT1, FTT11);
+            inputText(FTT2, FTT22);
+            inputText(FTT3, FTT33);
+            inputText(FTT4, FTT44);
+            inputText(FTT5, FTT55);
+            inputText(OTT1, OTT11);
+            inputText(OTT2, OTT22);
+            inputText(OTT3, OTT33);
+            inputText(OTT4, OTT44);
+            inputText(OTT5, OTT55);
+            inputText(HEPBOpenBalance, HEPBOpenBalance1);
+            inputText(HEPBReceived, HEPBReceived2);
+            inputText(HEPBCloseBalance, HEPBCloseBalance3);
+            inputText(BCGOpenBalance, BCGOpenBalance1);
+            inputText(BCGReceived, BCGReceived2);
+            inputText(BCGCloseBalance, BCGCloseBalance3);
+            inputText(OPVOpenBalance, OPVOpenBalance1);
+            inputText(OPVReceived, OPVReceived2);
+            inputText(OPVCloseBalance, OPVCloseBalance3);
+            inputText(PentaOpenBalance, PentaOpenBalance1);
+            inputText(PentaReceived, PentaReceived2);
+            inputText(PentaCloseBalance, PentaCloseBalance3);
+            inputText(PCVOpenBalance, PCVOpenBalance1);
+            inputText(PCVReceived, PCVReceived2);
+            inputText(PCVCloseBalance, PCVCloseBalance3);
+            inputText(ROTAOpenBalacne, ROTAOpenBalacne1);
+            inputText(ROTAReceived, ROTAReceived2);
+            inputText(ROTACloseBalance, ROTACloseBalance3);
+            inputText(IPVOpenBalacne, IPVOpenBalacne1);
+            inputText(IPVReceived, IPVReceived2);
+            inputText(IPVCloseBalance, IPVCloseBalance3);
+            inputText(TCVOpenBalacne, TCVOpenBalacne1);
+            inputText(TCVReceived, TCVReceived2);
+            inputText(TCVCloseBalance, TCVCloseBalance3);
+            inputText(MROpenBalacne, MROpenBalacne1);
+            inputText(MRReceived, MRReceived2);
+            inputText(MRCloseBalance, MRCloseBalance3);
+            inputText(DTPOpenBalacne, DTPOpenBalacne1);
+            inputText(DTPReceived, DTPReceived2);
+            inputText(DTPCloseBalance, DTPCloseBalance3);
+            inputText(TTOpenBalacne, TTOpenBalacne1);
+            inputText(TTReceived, TTReceived2);
+            inputText(TTCloseBalance, TTCloseBalance3);
+            inputText(AD005OpenBalacne, AD005OpenBalacne1);
+            inputText(AD005Received, AD005Received2);
+            inputText(AD005CloseBalance, AD005CloseBalance3);
+            inputText(AD05OpenBalacne, AD05OpenBalacne1);
+            inputText(AD05Received, AD05Received2);
+            inputText(AD05CloseBalance, AD05CloseBalance3);
+            inputText(Syr2OpenBalacne, Syr2OpenBalacne1);
+            inputText(Syr2Received, Syr2Received2);
+            inputText(Syr2CloseBalance, Syr2CloseBalance3);
+            inputText(Syr5OpenBalacne, Syr5OpenBalacne1);
+            inputText(Syr5Received, Syr5Received2);
+            inputText(Syr5CloseBalance, Syr5CloseBalance3);
+            inputText(CardChildOpenBalacne, CardChildOpenBalacne1);
+            inputText(CardChildReceived, CardChildReceived2);
+            inputText(CardChildCloseBalance, CardChildCloseBalance3);
+            inputText(CardWomenOpenBalacne, CardWomenOpenBalacne1);
+            inputText(CardWomenReceived, CardWomenReceived2);
+            inputText(CardWomenCloseBalance, CardWomenCloseBalance3);
+            inputText(UsedSafteyBox, UsedSafteyBox1);
+            inputText(DisposedSafteyBox, DisposedSafteyBox2);
+            dropDownItemSelect(methodDisposeDropDown1, methodDisposeDropDown11);
+            inputText(UsedVials, UsedVials1);
+            inputText(DisposedVials, DisposedVials2);
+            dropDownItemSelect(methodDisposeDropDown2, methodDisposeDropDown21);
+            inputText(UnusedVials, UnusedVials1);
+            inputText(UnusedDisposedVials, UnusedDisposedVials2);
+            dropDownItemSelect(methodDisposeDropDown3, methodDisposeDropDown31);
+            inputText(MissedNA, MissedNA1);
+            inputText(Refusal, Refusal2);
+            inputText(Sick, Sick1);
+            inputText(newMaleChild, newMaleChild1);
+            inputText(newFemaleChild, newFemaleChild2);
+            inputText(recordedZeroDue, recordedZeroDue1);
+            inputText(recordedZeroDefaulter, recordedZeroDefaulter2);
+            inputText(coverageZeroDue, coverageZeroDue1);
+            inputText(coverageZeroDefaulter, coverageZeroDefaulter2);
         }
     }
 }

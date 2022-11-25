@@ -25,6 +25,7 @@ namespace FP_InterWood
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--headless");
             if (browserName.Equals("chrome", StringComparison.InvariantCultureIgnoreCase))
+
             {
                 driver = new ChromeDriver(options);
             }
@@ -44,7 +45,11 @@ namespace FP_InterWood
             IWebElement element = ExplicitWaitElementIsVisible(path);
             return element;
         }
-
+        public IWebElement findElement1(By path)
+        {
+            IWebElement element = ExplicitWaitElementIsVisible1(path);
+            return element;
+        }
         public void ClickableItem(By path)
         {
             IWebElement element = ExplicitWaitElementIsVisible(path);
@@ -66,10 +71,20 @@ namespace FP_InterWood
             IWebElement txtBox = findElement(path);
             txtBox.SendKeys(data);
         }
-        
+        public void inputTextLogin(By path, string data)
+        {
+
+            IWebElement txtBox = findElement1(path);
+            txtBox.SendKeys(data);
+        }
         public IWebElement ExplicitWaitElementIsVisible(By path)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(path));
+        }
+        public IWebElement ExplicitWaitElementIsVisible1(By path)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
             return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(path));
         }
         public void scrollPageDown()
